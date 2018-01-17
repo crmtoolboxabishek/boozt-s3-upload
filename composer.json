@@ -1,0 +1,9 @@
+{
+    "require": {
+        "ext-ftp": "*",
+        "ext-soap": "*",
+        "ext-mbstring": "*",
+        "phpseclib/phpseclib": "2.0.*",
+        "aws/aws-sdk-php": "3.*"
+     }
+}
