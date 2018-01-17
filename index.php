@@ -14,7 +14,10 @@ try {
     $sftp = new SFTP(getenv('SFTP_HOST'));
     $sftp->login(getenv('SFTP_USERNAME'), getenv('SFTP_PASSWORD'));
 
+    echo "\n Downloading File {$filename} from SFTP <br>";
     $file = $sftp->get($filename, $downloadedFile);
+
+    echo "\n Saved file to {$downloadedFile} <br>";
 
     $s3 = Aws\S3\S3Client::factory(array(
             'region'  => 'eu-west-1',
@@ -29,6 +32,8 @@ try {
         $s3->createBucket(['Bucket' => $bucket]);
     }
 
+    echo "\n Uploading file to S3 <br>";
+
     // Upload a file.
     $result = $s3->putObject(array(
             'Bucket'       => $bucket,
@@ -38,6 +43,7 @@ try {
             'ACL'          => 'public-read',
     ));
 
+    echo "\n Uploaded file successfully <br>";
     return true;
 } catch(Exception $e) {
     echo $e->getMessage();
