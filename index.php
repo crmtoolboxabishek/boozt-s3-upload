@@ -7,7 +7,7 @@ use phpseclib\Net\SFTP;
 
 $filename = 'cloudprint-test.pdf';
 $key = 'az-test.pdf';
-$downloadedFile = $key;
+$downloadedFile = 'files/'.$key;
 
 try {
     // Login SFTP

@@ -5,5 +5,10 @@
         "ext-mbstring": "*",
         "phpseclib/phpseclib": "2.0.*",
         "aws/aws-sdk-php": "3.*"
-     }
+    },
+    "scripts": {
+        "compile": [
+          "chmod -R 777 files/",
+    ]
+  }
 }
