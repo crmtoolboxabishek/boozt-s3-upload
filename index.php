@@ -17,7 +17,6 @@ try {
     $file = $sftp->get($filename, $downloadedFile);
 
     $s3 = Aws\S3\S3Client::factory(array(
-            'profile' => 'asr',
             'region'  => 'eu-west-1',
             'version' => 'latest',
         )
