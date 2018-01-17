@@ -11,8 +11,8 @@ $downloadedFile = 'files/'.$key;
 
 try {
     // Login SFTP
-    $sftp = new SFTP(SFTP_HOST);
-    $sftp->login(SFTP_USERNAME, SFTP_PASSWORD);
+    $sftp = new SFTP(getenv('SFTP_HOST'));
+    $sftp->login(getenv('SFTP_USERNAME'), getenv('SFTP_PASSWORD'));
 
     $file = $sftp->get($filename, $downloadedFile);
 
